@@ -1,0 +1,261 @@
+nav ul {
+  list-style: none;
+  /* quita los puntos de la lista */
+  display: flex;
+  /* pone los <li> en fila */
+  gap: 20px;
+  /* deja espacio entre los elementos */
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  /* quita el subrayado */
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff9800;
+  /* color al pasar el mouse */
+}
+
+header {
+  background-color: #707070;
+  /* gris oscuro */
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #d6d6d6;
+
+}
+
+.container {
+
+  margin: 13px;
+  margin-right: 13px;
+  padding: 0px;
+  display: grid;
+
+  height: 86vh;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.Gri {
+  background-color: #f0f0f0;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1em;
+  min-width: 316px;
+
+
+}
+
+
+.container> :first-child {
+  grid-column: span 2;
+  grid-row: span 4;
+  min-height: 304px;
+
+}
+
+.container>div:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 4;
+
+  background-color: aquamarine;
+  min-height: 304px;
+
+}
+
+.container>div:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 2;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background-color: #cccf9e;
+  min-height: 152px;
+
+
+}
+
+.container>div:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 2;
+
+
+
+
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background-color: #ec7878;
+  min-height: 152px;
+}
+
+.container>div:nth-child(5) {
+
+
+  grid-column: span 1;
+  grid-row: span 2;
+
+
+  background-color: #8e95be;
+  min-height: 152px;
+}
+
+
+
+
+span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* espacio entre label e input */
+}
+
+input {
+  flex: 1;
+  /* hace que los inputs crezcan según el espacio */
+
+}
+
+.H_img {
+  width: auto;
+  height: 110px;
+  flex: 1;
+  background-color: #f0f0f0;
+  border: 1px solid #000000;
+  border-radius: 10px;
+
+
+}
+
+.H_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.S_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  gap: 10px;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.Img_box {
+   background-color: #f0f0f0;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1em;
+  
+}
+
+.Fts {
+  margin: 13px;
+  padding: 0px;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* máximo 4 */
+  gap: 10px;
+  
+}
+
+/* Pantallas medianas → 3 columnas */
+@media (max-width: 900px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Pantallas pequeñas → 2 columnas */
+@media (max-width: 600px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celulares muy pequeños → 1 columna */
+@media (max-width: 400px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.galeria img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #000;
+   direction: ltr;
+}
+
+.bttons {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 10px;
+}
+
+.foto-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.foto-info {
+  font-size: 0.8em;
+  color: #333;
+  text-align: center;
+  word-break: break-word;
+}
+
+.img-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fecha-img {
+  margin-top: 6px;
+  font-size: 0.85em;
+  color: #333;
+  text-align: center;
+}
