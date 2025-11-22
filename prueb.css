@@ -25,16 +25,18 @@ nav a:hover {
 }
 
 header {
-  background-color: #707070;
-  /* gris oscuro */
-  padding: 20px;
+ background: linear-gradient(to right, #0f172a, #475872);
+  color: #f1f5f9;
+  padding: 20px ;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #d6d6d6;
+ background: linear-gradient(135deg, #ffffff, #ffffff);
+  color: #374151;
+  font-family: "Inter", sans-serif;
 
 }
 
@@ -53,13 +55,12 @@ body {
 }
 
 .Gri {
-  background-color: #f0f0f0;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  padding: 15px;
-  font-size: 1em;
-  min-width: 316px;
-
+   background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(41, 40, 40, 0.4);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  padding: 10px;
 
 }
 
@@ -258,4 +259,326 @@ padding: 10px;
   font-size: 0.85em;
   color: #333;
   text-align: center;
+}
+
+/* Botones bonitos */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Botón regresar */
+.btn.regresar {
+  background: #4c8bf5;
+  color: white;
+  
+}
+
+.btn.regresar:hover {
+  background: #3a73d9;
+
+  transform: translateY(-2px);
+}
+
+/* Botón borrar */
+.btn.borrar {
+  background: #ff5252;
+  color: white;
+ 
+  border: none;
+}
+
+
+
+/* Contenedor de botones */
+.bttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* ===== PANEL 1 - CÁMARA ===== */
+.container > .Gri:nth-child(1) {
+  background: rgba(255,255,255,0.9);
+}
+
+/* ===== PANEL 2 - NOTIFICACIONES ===== */
+.container > .Gri:nth-child(2) {
+  background: linear-gradient(135deg, #edf1ff, #b1c3ff); 
+}
+
+/* ===== PANEL 3 - HISTORIAL ===== */
+.container > .Gri:nth-child(3) {
+  background: linear-gradient(135deg, #f9d7d7, #f1f5f9);
+}
+
+/* ===== PANEL 4 - CONFIGURACIÓN ===== */
+.container > .Gri:nth-child(4) {
+  background: linear-gradient(135deg, #f9dfed, #fae8ff); 
+}
+
+/* ===== PANEL 5 - MONITOR SERIAL ===== */
+.container > .Gri:nth-child(5) {
+  background: linear-gradient(135deg, #cdf6ed, #e2e8f0);
+}
+
+/* ===== HEADINGS ===== */
+label {
+  font-weight: 700;
+  font-size: 1.05em;
+  color: #0f172a;
+}
+
+/* ===== INPUTS ===== */
+input {
+  border: 1px solid #cbd5e1;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #f8fafc;
+  transition: 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59,130,246,0.4);
+}
+
+button {
+  background: linear-gradient(136deg#f9d7d7, #f1f5f9);
+  color: rgb(0, 0, 0);
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+  
+}
+
+.btn-ver-todas{
+  background: linear-gradient(135deg,#fed1d1, #e7f0f9);
+  color: black;
+  padding: 8px 16px;
+  border: black 1px solid;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  
+}
+
+.btn-config {
+  background: linear-gradient(135deg, #ffd0e9, #f9e1ff);
+  color: rgb(0, 0, 0);
+  padding: 8px 16px;
+  border: black 1px solid;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-right: 6px;
+}
+
+.btn-config:hover {
+  transform: translateY(-2px);
+}
+
+.btn-config:active {
+  transform: translateY(0);
+}
+
+
+button:hover {
+  background: linear-gradient(135deg, #5995f6, #5487f3);
+  transform: translateY(-2px);
+}
+
+.H_img {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+
+/* CONTENEDOR DE BOTONES */
+.bttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+}
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: black;
+  font-weight: 700;
+  font-size: 0.95em;
+
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+}
+
+.btn.regresar {
+  background: linear-gradient(136deg,#000000, #97aaff);
+  box-shadow: 0 4px 12px rgba(71, 85, 105, 0.35);
+}
+
+.btn.regresar:hover {
+  background: linear-gradient(136deg,#ffffff, #3f62fe);
+  box-shadow: 0 6px 18px rgba(71, 85, 105, 0.45);
+}
+
+.btn.borrar {
+  background: linear-gradient(136deg,#000000, #97aaff);
+}
+
+
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-right: 10px;
+}
+
+/* Botón de Configurar Horario */
+.HorarioBtn {
+  background: linear-gradient(135deg, #dce3fd, #a4b9ff);
+  color: rgb(0, 0, 0);
+  border: black 1px solid;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  
+}
+
+.HorarioBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.4);
+}
+
+.HorarioBtn:active {
+  transform: translateY(0px);
+  box-shadow: 0 3px 6px rgba(37, 99, 235, 0.4);
+}
+
+
+
+/* Modal general */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: white;
+  width: 420px;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+  animation: showModal .25s ease-out;
+}
+
+
+@keyframes showModal {
+  from { opacity:0; transform: scale(.9); }
+  to   { opacity:1; transform: scale(1); }
+}
+
+.modal-close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Título */
+.horario-modal h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Inputs */
+.input-horario {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 16px;
+}
+
+.hint-horario {
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* Botón guardar */
+.btn-horario {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  
+  cursor: pointer;
+}
+
+.btn-horario:hover {
+  transform: translateY(-2px);
+}
+
+/* Mensaje de guardado */
+.saved-badge {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
 }
