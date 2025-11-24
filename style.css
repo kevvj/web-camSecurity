@@ -612,28 +612,39 @@ button:hover {
   border-radius: 15px;
 }
 
-.notif-container{
+.notif-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  height: 300px;
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
 }
 
-.notification{
+.notification {
   border: 1px solid black;
   padding: 2px 30px;
   min-width: 200px;
   border-radius: 20px;
-  max-width: 270px;
+  max-width: 350px;
 }
 
-.notification p{
+.notification p {
   word-wrap: break-word
 }
 
-.notif-title{
+.notif-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
   padding: 20px;
+}
+
+#serial-box {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
 }
