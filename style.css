@@ -202,7 +202,7 @@ input {
 
   .bttons {
     flex-direction: column;
-    background-color: black;
+    gap: 20px;
   }
 }
 
