@@ -426,6 +426,8 @@ if (localStorage.getItem("auth") !== "ok") {
 
 
 
+<script>
+function logout() {
     localStorage.removeItem("auth");
     window.location.href = "control.html";
 }
