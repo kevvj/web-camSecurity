@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+
+
+<!-- VERIFICAR ACCESO -->
+<script>
+if (localStorage.getItem("auth") !== "ok") {
+    window.location.href = "control.html";
+}
+</script>
+
+
+
+
+
 </head>
 
 <body>
@@ -16,6 +29,10 @@
       <ul>
         <li><a>CamMonitor</a></li>
         <li><a id="connection">⛔Desconectado</a></li>
+        <li><a> <button onclick="logout()">Cerrar sesión</button>
+          
+<button onclick="cambiarPass()">Cambiar contraseña</button>
+</a></li>
         <li>
           <a href="#">
             <img src="images/isatis.png" alt="Logo" style="height: 35px;">
@@ -409,6 +426,28 @@
 
 
 
+    localStorage.removeItem("auth");
+    window.location.href = "control.html";
+}
+
+function cambiarPass() {
+    let nueva = prompt("Ingrese la nueva contraseña:");
+
+    if (!nueva) {
+        alert("No ingresaste ninguna contraseña.");
+        return;
+    }
+
+    // Guardar la nueva contraseña
+    localStorage.setItem("password", nueva);
+
+    alert("Contraseña actualizada.");
+
+    // Opcional: cerrar sesión después del cambio
+    localStorage.removeItem("auth");
+    window.location.href = "control.html";
+}
+</script>
 
 
 

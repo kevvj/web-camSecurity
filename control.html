@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso</title>
+</head>
+<body>
+
+<h2>Ingrese la contraseña</h2>
+
+<input type="password" id="pass" placeholder="Contraseña">
+<button onclick="login()">Entrar</button>
+
+<script>
+function login() {
+    const password = document.getElementById("pass").value;
+
+    // Si no hay contraseña guardada, usa la default "1234"
+    const savedPass = localStorage.getItem("password") || "1234";
+
+    if (password === savedPass) {
+        // Autorización concedida
+        localStorage.setItem("auth", "ok");
+        window.location.href = "index.html";
+    } else {
+        alert("Contraseña incorrecta");
+    }
+}
+</script>
+
+</body>
+</html>
