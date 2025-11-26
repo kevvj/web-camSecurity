@@ -18,7 +18,7 @@
             const password = document.getElementById("pass").value;
 
             try {
-                const res = await fetch("https://api-camara.vercel.app/login", {
+                const res = await fetch("https://api-camara.vercel.app/get/serial/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ password })
