@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Acceso</title>
 </head>
+
 <body>
 
-<h2>Ingrese la contraseña</h2>
+    <h2>Ingrese la contraseña</h2>
 
-<input type="password" id="pass" placeholder="Contraseña">
-<button onclick="login()">Entrar</button>
+    <input type="password" id="pass" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
 
-<script>
-function login() {
-    const password = document.getElementById("pass").value;
+    <script>
+        async function login() {
+            const password = document.getElementById("pass").value;
 
-    // Si no hay contraseña guardada, usa la default "1234"
-    const savedPass = localStorage.getItem("password") || "1234";
+            try {
+                const res = await fetch("https://api-camara.vercel.app/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ password })
+                });
 
-    if (password === savedPass) {
-        // Autorización concedida
-        localStorage.setItem("auth", "ok");
-        window.location.href = "index.html";
-    } else {
-        alert("Contraseña incorrecta");
-    }
-}
-</script>
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.status === "ok") {
+                        localStorage.setItem("auth", "ok");
+                        window.location.href = "index.html";
+                    } else {
+                        alert("Contraseña incorrecta");
+                    }
+                } else {
+                    alert("Error al validar contraseña");
+                }
+
+            } catch (err) {
+                console.error(err);
+                alert("Error de conexión");
+            }
+        }
+
+    </script>
 
 </body>
+
 </html>
