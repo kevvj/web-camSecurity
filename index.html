@@ -4,19 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ISATIS</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/isatis.png">
 
 
-<!-- VERIFICAR ACCESO -->
-<script>
-if (localStorage.getItem("auth") !== "ok") {
-    window.location.href = "control.html";
-}
-</script>
-
-
-
+  <!-- VERIFICAR ACCESO -->
+  <script>
+    if (localStorage.getItem("auth") !== "ok") {
+      window.location.href = "control.html";
+    }
+  </script>
 
 
 </head>
@@ -27,12 +25,11 @@ if (localStorage.getItem("auth") !== "ok") {
   <header>
     <nav>
       <ul>
-        <li><a>CamMonitor</a></li>
+        <li><a href="index.html">CamMonitor</a></li>
         <li><a id="connection">⛔Desconectado</a></li>
         <li><a> <button onclick="logout()">Cerrar sesión</button>
-          
-<button onclick="cambiarPass()">Cambiar contraseña</button>
-</a></li>
+
+          </a></li>
         <li>
           <a href="#">
             <img src="images/isatis.png" alt="Logo" style="height: 35px;">
@@ -371,10 +368,7 @@ if (localStorage.getItem("auth") !== "ok") {
 
     // Guardar horario
     document.getElementById("guardarHorario").addEventListener("click", async () => {
-      if (!isConnected) {
-        alert('No estas en el mismo wifi que la camara!')
-        return
-      }
+
       const inicio = document.getElementById("horaInicio").value;
       const fin = document.getElementById("horaFin").value;
       const camera = document.getElementById('camera')
@@ -396,10 +390,7 @@ if (localStorage.getItem("auth") !== "ok") {
 
       console.log('hora:', hInicio, 'minuto:', mInicio, 'hora', hFin, 'minuto:', mFin)
 
-      // Aquí puedes hacer un fetch a tu API si quieres
-      // Ej: fetch("/save-horario", { method:"POST", body: JSON.stringify({inicio, fin}) })
-
-      const res = fetch(`http://${general_ip}/setschedule`, {
+      const res = await fetch(`http://${general_ip}/setschedule`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `startHour=${hInicio}&startMinute=${mInicio}&endHour=${hFin}&endMinute=${mFin}`
@@ -408,7 +399,11 @@ if (localStorage.getItem("auth") !== "ok") {
 
       if (text) {
         alert(text)
-        camera.src = `http://${general_ip}/stream`
+        try {
+          camera.src = `http://${general_ip}/stream`
+        } catch (e) {
+          console.log('error stream')
+        }
       }
 
       document.getElementById("mensajeHorario").style.display = "block";
@@ -416,6 +411,8 @@ if (localStorage.getItem("auth") !== "ok") {
       setTimeout(() => {
         document.getElementById("mensajeHorario").style.display = "none";
         document.getElementById("modalHorario").style.display = "none";
+
+        console.log('si llego')
       }, 2000);
     });
   </script>
@@ -426,30 +423,30 @@ if (localStorage.getItem("auth") !== "ok") {
 
 
 
-<script>
-function logout() {
-    localStorage.removeItem("auth");
-    window.location.href = "control.html";
-}
-
-function cambiarPass() {
-    let nueva = prompt("Ingrese la nueva contraseña:");
-
-    if (!nueva) {
-        alert("No ingresaste ninguna contraseña.");
-        return;
+  <script>
+    function logout() {
+      localStorage.removeItem("auth");
+      window.location.href = "control.html";
     }
 
-    // Guardar la nueva contraseña
-    localStorage.setItem("password", nueva);
+    function cambiarPass() {
+      let nueva = prompt("Ingrese la nueva contraseña:");
 
-    alert("Contraseña actualizada.");
+      if (!nueva) {
+        alert("No ingresaste ninguna contraseña.");
+        return;
+      }
 
-    // Opcional: cerrar sesión después del cambio
-    localStorage.removeItem("auth");
-    window.location.href = "control.html";
-}
-</script>
+      // Guardar la nueva contraseña
+      localStorage.setItem("password", nueva);
+
+      alert("Contraseña actualizada.");
+
+      // Opcional: cerrar sesión después del cambio
+      localStorage.removeItem("auth");
+      window.location.href = "control.html";
+    }
+  </script>
 
 
 

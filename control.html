@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Acceso</title>
+    <title>ISATIS</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="icon" type="image/png" href="images/isatis.png">
 </head>
+
 <body class="control-page">
 
-<div class="control-login-box">
-    <h2>Ingrese la contraseña</h2>
+    <div class="control-login-box">
+        <h2>Ingrese la contraseña</h2>
 
-    <input type="password" id="pass" class="control-input" placeholder="Contraseña">
+        <input type="password" id="pass" class="control-input" placeholder="Contraseña">
 
-    <button class="btn-login" onclick="login()">Entrar</button>
+        <button class="btn-login" onclick="login()">Entrar</button>
 
-    <div id="control-msg"></div>
-</div>
+        <div id="control-msg"></div>
+    </div>
 
-<script>
-    function showMsg(text) {
-    document.getElementById("control-msg").innerHTML = text;
-}
+    <script>
+        function showMsg(text) {
+            document.getElementById("control-msg").innerHTML = text;
+        }
 
-function login() {
-    const password = document.getElementById("pass").value;
+        async function login() {
+            const password = document.getElementById("pass").value;
 
-    // Si no hay contraseña guardada, usa la default "1234"
-    const savedPass = localStorage.getItem("password") || "1234";
+            try {
+                const res = await fetch("https://api-camara.vercel.app/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ password })
+                });
 
-    if (password === savedPass) {
-        // Autorización concedida
-        localStorage.setItem("auth", "ok");
-        window.location.href = "index.html";
-    } else {
-        alert("Contraseña incorrecta");
-    }
-}
-</script>
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.status === "ok") {
+                        localStorage.setItem("auth", "ok");
+                        window.location.href = "index.html";
+                    } else {
+                        showMsg("Contraseña incorrecta");
+                    }
+                } else {
+                    showMsg("Contraseña incorrecta");
+                }
+
+            } catch (err) {
+                console.error(err);
+                showMsg("Error de conexión");
+            }
+        }
+    </script>
 
 </body>
+
 </html>
