@@ -861,3 +861,50 @@ body.control-page {
   color: rgba(255,255,255,0.9);
   pointer-events: none;
 }
+
+
+
+#change-pass-box {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+
+  margin-top: 150px;
+}
+
+#change-pass-box h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#change-pass-box input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+#change-pass-box button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+#change-pass-box button:hover {
+  background-color: #0056b3;
+}
+
+#change-pass-msg {
+  margin-top: 10px;
+  min-height: 20px;
+  color: red;
+  text-align: center;
+}

@@ -3,22 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Acceso</title>
+    <title>ISATIS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/isatis.png">
 </head>
 
-<body>
+<body class="control-page">
 
-    <h2>Ingrese la contraseña</h2>
+    <div class="control-login-box">
+        <h2>Ingrese la contraseña</h2>
 
-    <input type="password" id="pass" placeholder="Contraseña">
-    <button onclick="login()">Entrar</button>
+        <input type="password" id="pass" class="control-input" placeholder="Contraseña">
+
+        <button class="btn-login" onclick="login()">Entrar</button>
+
+        <div id="control-msg"></div>
+    </div>
 
     <script>
+        function showMsg(text) {
+            document.getElementById("control-msg").innerHTML = text;
+        }
+
         async function login() {
             const password = document.getElementById("pass").value;
 
             try {
-                const res = await fetch("https://api-camara.vercel.app/get/serial/login", {
+                const res = await fetch("https://api-camara.vercel.app/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ password })
@@ -30,18 +41,17 @@
                         localStorage.setItem("auth", "ok");
                         window.location.href = "index.html";
                     } else {
-                        alert("Contraseña incorrecta");
+                        showMsg("Contraseña incorrecta");
                     }
                 } else {
-                    alert("Error al validar contraseña");
+                    showMsg("Contraseña incorrecta");
                 }
 
             } catch (err) {
                 console.error(err);
-                alert("Error de conexión");
+                showMsg("Error de conexión");
             }
         }
-
     </script>
 
 </body>
