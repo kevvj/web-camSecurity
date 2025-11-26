@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Acceso</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
-<body>
+<body class="control-page">
 
-<h2>Ingrese la contraseña</h2>
+<div class="control-login-box">
+    <h2>Ingrese la contraseña</h2>
 
-<input type="password" id="pass" placeholder="Contraseña">
-<button onclick="login()">Entrar</button>
+    <input type="password" id="pass" class="control-input" placeholder="Contraseña">
+
+    <button class="btn-login" onclick="login()">Entrar</button>
+
+    <div id="control-msg"></div>
+</div>
 
 <script>
+    function showMsg(text) {
+    document.getElementById("control-msg").innerHTML = text;
+}
+
 function login() {
     const password = document.getElementById("pass").value;
 
