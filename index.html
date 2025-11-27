@@ -277,7 +277,9 @@
         if (!Array.isArray(data) || data.length === 0) return;
 
         // Tomar las dos últimas imágenes (más nuevas)
-        const ultimas = [...data].slice(-2).reverse();
+        const ultimas = [...data]
+          .sort((a, b) => b.id - a.id)
+          .slice(0, 2)
 
         addNoti(ultimas)
 
